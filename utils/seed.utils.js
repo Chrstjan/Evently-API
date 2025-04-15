@@ -1,6 +1,6 @@
 import fs from "fs";
 import csv from "csv-parser";
-import path, { resolve } from "path";
+import path from "path";
 import sequelize from "../config/sequelize.config.js";
 
 /**

@@ -38,6 +38,11 @@ User.init(
       allowNull: false,
       defaultValue: 0,
     },
+    following: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
     refresh_token: {
       type: DataTypes.STRING,
       allowNull: false,
