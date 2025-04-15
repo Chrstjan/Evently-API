@@ -5,6 +5,7 @@ import { authController } from "./controllers/auth.controller.js";
 import { setRelations } from "./models/relations.js";
 import { eventController } from "./controllers/event.controller.js";
 import { categoryController } from "./controllers/category.controller.js";
+import { userController } from "./controllers/user.controller.js";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -20,7 +21,13 @@ app.get("/", (req, res) => {
   res.send({ message: "Welcome to the evently API" });
 });
 
-app.use(dbController, authController, eventController, categoryController);
+app.use(
+  dbController,
+  authController,
+  eventController,
+  categoryController,
+  userController
+);
 
 app.listen(port, () => {
   console.log(`Server live on http://localhost:${port}`);
