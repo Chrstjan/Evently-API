@@ -3,9 +3,10 @@ import sequelize from "../config/sequelize.config.js";
 import { errorResponse, successResponse } from "../utils/response.utils.js";
 import { seedFromCsv } from "../utils/seed.utils.js";
 import { User } from "../models/user.model.js";
+import { Following } from "../models/following.model.js";
 import { Category } from "../models/category.model.js";
 import { Event } from "../models/event.model.js";
-
+import { JoinedEvent } from "../models/joined_event.model.js";
 export const dbController = express.Router();
 
 dbController.get("/api", async (req, res) => {
@@ -30,8 +31,10 @@ dbController.get("/seed", async (req, res) => {
   try {
     const files_to_seed = [
       { file: "user.csv", model: User },
+      { file: "following.csv", model: Following },
       { file: "category.csv", model: Category },
       { file: "event.csv", model: Event },
+      { file: "joined_event.csv", model: JoinedEvent },
     ];
 
     const files_seeded = [];

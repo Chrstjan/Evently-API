@@ -1,2 +1,3 @@
 "id","firstname","lastname","email","password","avatar","followers","following","refresh_token"
 1,"Admin","Admin","admin@mail.com","password","",0,0,"-"
+2,"John","User","john@doe.com",password,"-",1,0,"-"

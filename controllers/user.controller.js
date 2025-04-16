@@ -1,8 +1,10 @@
 import express from "express";
-import { User as model } from "../models/user.model.js";
+import { User as model, User } from "../models/user.model.js";
 import { errorResponse, successResponse } from "../utils/response.utils.js";
 import { Authorize, getUserFromToken } from "../utils/auth.utils.js";
 import { Event } from "../models/event.model.js";
+import { JoinedEvent } from "../models/joined_event.model.js";
+import { Following } from "../models/following.model.js";
 
 export const userController = express.Router();
 const url = "users";
@@ -25,6 +27,43 @@ userController.get(`/${url}`, Authorize, async (req, res) => {
         {
           model: Event,
           as: "events",
+        },
+        {
+          model: JoinedEvent,
+          as: "joined_events",
+          attributes: ["id"],
+          include: [
+            {
+              model: Event,
+              attributes: [
+                "user_id",
+                "title",
+                "location",
+                "date",
+                "time",
+                "short_desc",
+                "slug",
+              ],
+            },
+          ],
+        },
+        {
+          model: Following,
+          as: "followers_rel",
+        },
+        {
+          model: Following,
+          as: "following_rel",
+          attributes: {
+            exclude: ["createdAt", "updatedAt", "user_id"],
+          },
+          include: [
+            {
+              model: User,
+              as: "user",
+              attributes: ["firstname", "lastname"],
+            },
+          ],
         },
       ],
     });

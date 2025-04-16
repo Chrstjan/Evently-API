@@ -6,6 +6,8 @@ import { setRelations } from "./models/relations.js";
 import { eventController } from "./controllers/event.controller.js";
 import { categoryController } from "./controllers/category.controller.js";
 import { userController } from "./controllers/user.controller.js";
+import { followingController } from "./controllers/following.controller.js";
+import { joinedEventController } from "./controllers/joined_event.controller.js";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -26,7 +28,9 @@ app.use(
   authController,
   eventController,
   categoryController,
-  userController
+  userController,
+  joinedEventController,
+  followingController
 );
 
 app.listen(port, () => {
