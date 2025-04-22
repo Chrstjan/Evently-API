@@ -6,6 +6,7 @@ import { User } from "../models/user.model.js";
 import { Following } from "../models/following.model.js";
 import { Category } from "../models/category.model.js";
 import { Event } from "../models/event.model.js";
+import { Comment } from "../models/comment.model.js";
 import { JoinedEvent } from "../models/joined_event.model.js";
 import { Image } from "../models/image.model.js";
 import { ImageRel } from "../models/image_rel.model.js";
@@ -36,6 +37,7 @@ dbController.get("/seed", async (req, res) => {
       { file: "following.csv", model: Following },
       { file: "category.csv", model: Category },
       { file: "event.csv", model: Event },
+      { file: "comment.csv", model: Comment },
       { file: "joined_event.csv", model: JoinedEvent },
       { file: "image.csv", model: Image },
       { file: "image_rel.csv", model: ImageRel },

@@ -6,7 +6,6 @@ import { Category } from "../models/category.model.js";
 import { User } from "../models/user.model.js";
 import { Comment } from "../models/comment.model.js";
 import { Image } from "../models/image.model.js";
-import { ImageRel } from "../models/image_rel.model.js";
 
 export const eventController = express.Router();
 const url = "events";
@@ -27,7 +26,7 @@ eventController.get(`/${url}`, async (req, res) => {
         {
           model: User,
           as: "creator",
-          attributes: ["firstname", "lastname", "id"],
+          attributes: ["id", "firstname", "lastname", "avatar"],
         },
       ],
       attributes: {
@@ -75,6 +74,12 @@ eventController.get(`/${url}/:slug`, async (req, res) => {
         {
           model: Comment,
           as: "comments",
+          attributes: ["id", "event_id", "content", "createdAt"],
+          include: {
+            model: User,
+            as: "user",
+            attributes: ["id", "firstname", "lastname", "avatar"],
+          },
         },
       ],
       attributes: {
@@ -117,7 +122,7 @@ eventController.get(`/${url}/category/:slug`, async (req, res) => {
         {
           model: User,
           as: "creator",
-          attributes: ["firstname", "lastname", "id"],
+          attributes: ["id", "firstname", "lastname", "avatar"],
         },
       ],
       attributes: {

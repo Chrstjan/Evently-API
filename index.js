@@ -5,6 +5,7 @@ import { authController } from "./controllers/auth.controller.js";
 import { setRelations } from "./models/relations.js";
 import { eventController } from "./controllers/event.controller.js";
 import { categoryController } from "./controllers/category.controller.js";
+import { searchController } from "./controllers/search.controller.js";
 import { userController } from "./controllers/user.controller.js";
 import { followingController } from "./controllers/following.controller.js";
 import { joinedEventController } from "./controllers/joined_event.controller.js";
@@ -29,6 +30,7 @@ app.use(
   authController,
   eventController,
   categoryController,
+  searchController,
   userController,
   commentController,
   joinedEventController,
