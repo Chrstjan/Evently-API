@@ -4,6 +4,9 @@ import { errorResponse, successResponse } from "../utils/response.utils.js";
 import { Authorize, getUserFromToken } from "../utils/auth.utils.js";
 import { Category } from "../models/category.model.js";
 import { User } from "../models/user.model.js";
+import { Comment } from "../models/comment.model.js";
+import { Image } from "../models/image.model.js";
+import { ImageRel } from "../models/image_rel.model.js";
 
 export const eventController = express.Router();
 const url = "events";
@@ -16,6 +19,10 @@ eventController.get(`/${url}`, async (req, res) => {
           model: Category,
           as: "category",
           attributes: ["name", "id", "slug"],
+        },
+        {
+          model: Image,
+          attributes: ["filename", "description"],
         },
         {
           model: User,
@@ -57,9 +64,17 @@ eventController.get(`/${url}/:slug`, async (req, res) => {
           attributes: ["name", "id", "slug"],
         },
         {
+          model: Image,
+          attributes: ["filename", "description"],
+        },
+        {
           model: User,
           as: "creator",
           attributes: ["firstname", "lastname", "id"],
+        },
+        {
+          model: Comment,
+          as: "comments",
         },
       ],
       attributes: {
@@ -94,6 +109,10 @@ eventController.get(`/${url}/category/:slug`, async (req, res) => {
           model: Category,
           as: "category",
           attributes: ["name", "id", "slug"],
+        },
+        {
+          model: Image,
+          attributes: ["filename", "description"],
         },
         {
           model: User,
