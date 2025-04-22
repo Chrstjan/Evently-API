@@ -1,17 +1,25 @@
 import sequelize from "../config/sequelize.config.js";
 import { DataTypes, Model } from "sequelize";
+import { Comment } from "./comment.model.js";
 import { User } from "./user.model.js";
-import { Event } from "./event.model.js";
 
-export class Comment extends Model {}
+export class Reply extends Model {}
 
-Comment.init(
+Reply.init(
   {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true,
+    },
+    comment_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: Comment,
+        key: "id",
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -21,16 +29,8 @@ Comment.init(
         key: "id",
       },
     },
-    event_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: Event,
-        key: "id",
-      },
-    },
     content: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     num_likes: {
@@ -41,7 +41,7 @@ Comment.init(
   },
   {
     sequelize,
-    modelName: "comment",
+    modelName: "reply",
     underscored: true,
     freezeTableName: true,
     timestamps: true,

@@ -10,6 +10,7 @@ import { userController } from "./controllers/user.controller.js";
 import { followingController } from "./controllers/following.controller.js";
 import { joinedEventController } from "./controllers/joined_event.controller.js";
 import { commentController } from "./controllers/comment.controller.js";
+import { replyController } from "./controllers/reply.controller.js";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -33,6 +34,7 @@ app.use(
   searchController,
   userController,
   commentController,
+  replyController,
   joinedEventController,
   followingController
 );

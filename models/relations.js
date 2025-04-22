@@ -5,6 +5,8 @@ import { Following } from "./following.model.js";
 import { Image } from "./image.model.js";
 import { ImageRel } from "./image_rel.model.js";
 import { JoinedEvent } from "./joined_event.model.js";
+import { NestedReply } from "./nested_reply.model.js";
+import { Reply } from "./reply.model.js";
 import { User } from "./user.model.js";
 
 export const setRelations = () => {
@@ -75,6 +77,38 @@ export const setRelations = () => {
     as: "comments",
     onDelete: "CASCADE",
   });
+
+  // Comment / Reply relation
+  Reply.belongsTo(Comment, {
+    foreignKey: "comment_id",
+    as: "comment",
+    onDelete: "CASCADE",
+  });
+
+  Comment.hasMany(Reply, {
+    foreignKey: "comment_id",
+    as: "replies",
+    onDelete: "CASCADE",
+  });
+
+  // Reply / Nested Reply relation
+  NestedReply.belongsTo(Reply, {
+    foreignKey: "parent_reply_id",
+    as: "parent_comment",
+    onDelete: "CASCADE",
+  });
+
+  Reply.hasMany(NestedReply, {
+    foreignKey: "parent_reply_id",
+    as: "nested_comments",
+    onDelete: "CASCADE",
+  });
+
+  // User / Reply relation
+  Reply.belongsTo(User);
+
+  // User / Nested Reply relation
+  NestedReply.belongsTo(User);
 
   // User / Followers relation
   Following.belongsTo(User, {

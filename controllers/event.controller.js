@@ -6,6 +6,8 @@ import { Category } from "../models/category.model.js";
 import { User } from "../models/user.model.js";
 import { Comment } from "../models/comment.model.js";
 import { Image } from "../models/image.model.js";
+import { Reply } from "../models/reply.model.js";
+import { NestedReply } from "../models/nested_reply.model.js";
 
 export const eventController = express.Router();
 const url = "events";
@@ -74,12 +76,47 @@ eventController.get(`/${url}/:slug`, async (req, res) => {
         {
           model: Comment,
           as: "comments",
-          attributes: ["id", "event_id", "content", "createdAt"],
-          include: {
-            model: User,
-            as: "user",
-            attributes: ["id", "firstname", "lastname", "avatar"],
-          },
+          attributes: ["id", "event_id", "content", "createdAt", "num_likes"],
+          include: [
+            {
+              model: User,
+              as: "user",
+              attributes: ["id", "firstname", "lastname", "avatar"],
+            },
+            {
+              model: Reply,
+              as: "replies",
+              attributes: [
+                "id",
+                "comment_id",
+                "content",
+                "createdAt",
+                "num_likes",
+              ],
+              include: [
+                {
+                  model: User,
+                  attributes: ["id", "firstname", "lastname"],
+                },
+                {
+                  model: NestedReply,
+                  as: "nested_comments",
+                  include: {
+                    model: User,
+                    attributes: ["id", "firstname", "lastname"],
+                  },
+                  attributes: [
+                    "id",
+                    "comment_id",
+                    "parent_reply_id",
+                    "content",
+                    "createdAt",
+                    "num_likes",
+                  ],
+                },
+              ],
+            },
+          ],
         },
       ],
       attributes: {

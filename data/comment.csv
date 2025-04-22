@@ -1,28 +1,28 @@
-"id","user_id","event_id","content"
-1,2,1,"The jazz band was amazing! Loved the atmosphere."
-2,1,1,"Such a cozy spot—I'll definitely come again!"
-3,1,2,"Super insightful! I learned a ton about AI trends."
-4,2,2,"Wish there had been more time for Q&A, but great speakers overall."
-5,2,3,"So many good smells everywhere, I didn’t know where to start!"
-6,1,3,"Loved the Thai dumplings and the live music!"
-7,1,4,"Exactly what I needed on a Monday morning. So peaceful."
-8,2,4,"Instructor was great and the weather was perfect!"
-9,1,5,"Some really unique short films—great local talent."
-10,2,5,"Loved the Q&A with the directors. Very inspiring!"
-11,2,6,"Intense but fun! Definitely motivated to keep learning web dev."
-12,1,6,"The hands-on approach really helped things click for me."
-13,1,7,"Fun vibes and lots of talent. Can't wait for the next one!"
-14,2,8,"Breathtaking performance. The violins gave me chills."
-15,1,8,"Loved hearing Mozart live again. Bravo to the orchestra!"
-16,2,9,"The tribute bands nailed it. Loud, wild, and so much fun!"
-17,1,10,"Quantum computing is still a mystery to me, but this helped a bit!"
-18,2,11,"Python finally makes sense to me. Thanks to the clear teaching!"
-19,1,12,"Chillest way to meet new coders. Loved the vibe."
-20,2,13,"Perfect combo of good wine, great company, and amazing cheese!"
-21,1,14,"Learned so much about beer! My favorite was the IPA flight."
-22,2,15,"Everything was super flavorful. More vegan events like this, please!"
-23,1,16,"I finally learned how to do latte art! Highly recommend."
-24,2,17,"The sound bath was like a reset button. So relaxing."
-25,1,18,"The forest views were unreal. Great people too!"
-26,2,19,"Very grounding and calming. I’m glad I went."
-27,1,20,"Great instructor, and a beautiful morning to stretch outside!"
+"id","user_id","event_id","content","num_likes"
+1,2,1,"The jazz band was amazing! Loved the atmosphere.",2
+2,1,1,"Such a cozy spot—I'll definitely come again!",5
+3,1,2,"Super insightful! I learned a ton about AI trends.",1
+4,2,2,"Wish there had been more time for Q&A, but great speakers overall.",12
+5,2,3,"So many good smells everywhere, I didn’t know where to start!",15
+6,1,3,"Loved the Thai dumplings and the live music!",4
+7,1,4,"Exactly what I needed on a Monday morning. So peaceful.",2
+8,2,4,"Instructor was great and the weather was perfect!",1
+9,1,5,"Some really unique short films—great local talent.",0
+10,2,5,"Loved the Q&A with the directors. Very inspiring!",20
+11,2,6,"Intense but fun! Definitely motivated to keep learning web dev.",25
+12,1,6,"The hands-on approach really helped things click for me.",5
+13,1,7,"Fun vibes and lots of talent. Can't wait for the next one!",8
+14,2,8,"Breathtaking performance. The violins gave me chills.",6
+15,1,8,"Loved hearing Mozart live again. Bravo to the orchestra!",2
+16,2,9,"The tribute bands nailed it. Loud, wild, and so much fun!",3
+17,1,10,"Quantum computing is still a mystery to me, but this helped a bit!",30
+18,2,11,"Python finally makes sense to me. Thanks to the clear teaching!",7
+19,1,12,"Chillest way to meet new coders. Loved the vibe.",11
+20,2,13,"Perfect combo of good wine, great company, and amazing cheese!",40
+21,1,14,"Learned so much about beer! My favorite was the IPA flight.",22
+22,2,15,"Everything was super flavorful. More vegan events like this, please!",14
+23,1,16,"I finally learned how to do latte art! Highly recommend.",6
+24,2,17,"The sound bath was like a reset button. So relaxing.",2
+25,1,18,"The forest views were unreal. Great people too!",0
+26,2,19,"Very grounding and calming. I’m glad I went.",1
+27,1,20,"Great instructor, and a beautiful morning to stretch outside!",9

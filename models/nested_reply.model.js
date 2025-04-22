@@ -1,17 +1,34 @@
 import sequelize from "../config/sequelize.config.js";
 import { DataTypes, Model } from "sequelize";
+import { Comment } from "./comment.model.js";
+import { Reply } from "./reply.model.js";
 import { User } from "./user.model.js";
-import { Event } from "./event.model.js";
 
-export class Comment extends Model {}
+export class NestedReply extends Model {}
 
-Comment.init(
+NestedReply.init(
   {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
       primaryKey: true,
+    },
+    comment_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: Comment,
+        key: "id",
+      },
+    },
+    parent_reply_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: Reply,
+        key: "id",
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -21,16 +38,8 @@ Comment.init(
         key: "id",
       },
     },
-    event_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: Event,
-        key: "id",
-      },
-    },
     content: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     num_likes: {
@@ -41,7 +50,7 @@ Comment.init(
   },
   {
     sequelize,
-    modelName: "comment",
+    modelName: "nested_reply",
     underscored: true,
     freezeTableName: true,
     timestamps: true,
