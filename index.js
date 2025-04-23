@@ -7,10 +7,11 @@ import { eventController } from "./controllers/event.controller.js";
 import { categoryController } from "./controllers/category.controller.js";
 import { searchController } from "./controllers/search.controller.js";
 import { userController } from "./controllers/user.controller.js";
-import { followingController } from "./controllers/following.controller.js";
-import { joinedEventController } from "./controllers/joined_event.controller.js";
 import { commentController } from "./controllers/comment.controller.js";
 import { replyController } from "./controllers/reply.controller.js";
+import { nestedReplyController } from "./controllers/nested_reply.controller.js";
+import { joinedEventController } from "./controllers/joined_event.controller.js";
+import { followingController } from "./controllers/following.controller.js";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -35,6 +36,7 @@ app.use(
   userController,
   commentController,
   replyController,
+  nestedReplyController,
   joinedEventController,
   followingController
 );

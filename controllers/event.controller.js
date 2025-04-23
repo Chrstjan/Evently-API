@@ -125,10 +125,7 @@ eventController.get(`/${url}/:slug`, async (req, res) => {
     });
 
     if (!result) {
-      errorResponse(
-        res,
-        `Error fetching event by slug: ${slug}: ${err.message}`
-      );
+      errorResponse(res, `Error fetching event by slug: ${slug}:`);
     }
     successResponse(res, result);
   } catch (err) {
